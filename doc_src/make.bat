@@ -75,10 +75,10 @@ if errorlevel 9009 (
 
 
 if "%1" == "html" (
-	%SPHINXBUILD% -b html %ALLSPHINXOPTS% ../docs
+	%SPHINXBUILD% -b html %ALLSPHINXOPTS% ../../sourcespell-docs
 	if errorlevel 1 exit /b 1
 	echo.
-	echo.Build finished. The HTML pages are in ../docs.
+	echo.Build finished. The HTML pages are in ../../sourcespell-docs.
 	goto end
 )
 
