@@ -1,6 +1,9 @@
 SourceSpell
 ===========
 
+.. image:: https://travis-ci.org/s-knibbs/sourcespell.svg?branch=master
+    :target: https://travis-ci.org/s-knibbs/sourcespell
+
 Command line spellchecking utility for checking comments and string literals in source code files.
 Includes an interactive mode for making corrections.
 
@@ -31,4 +34,4 @@ The following errors are produced from the enchant library when using an exclude
 
 This is caused by blank-lines in the excluded words file.
 
-.. _documentation: https://s-knibbs.github.io/ 
+.. _documentation: https://s-knibbs.github.io/sourcespell
