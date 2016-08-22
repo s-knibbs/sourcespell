@@ -560,7 +560,7 @@ def _get_version():
         return pkg_info.version
     except pkg_resources.DistributionNotFound:
         print("Could not find the distribution information!")
-        print("The project must be built, and installed with 'pip install' or 'setup.py develop'.")
+        print(r"The project must be built, and installed with 'pip install' or 'setup.py develop'.")
         sys.exit(1)
 
 
