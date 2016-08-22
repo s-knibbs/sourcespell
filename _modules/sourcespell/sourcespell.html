@@ -1,0 +1,884 @@
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>sourcespell.sourcespell &mdash; SourceSpell 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="SourceSpell 1.0 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" />
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Oxygen:400,700" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style type="text/css">
+body {
+    font-family: 'Roboto', sans-serif;
+}
+div.related a {
+    color: #CEAA94;
+}
+div.footer {
+    color: #CEAA94;
+}
+div.footer a {
+    color: #d1d1d1;
+}
+
+div.related:first-child {
+    background-color: #293263;
+}
+
+div.related:first-child > ul {
+    line-height: 55px;
+    font-family: 'Oxygen', sans-serif;
+    font-size: 18px;
+}
+
+div.body h1, div.body h2, div.body h3, div.body h4,
+div.body h5, div.body h6 {
+    background-color: transparent;
+    font-family: 'Oxygen', sans-serif;
+    padding: 5px 0;
+}
+
+div.sphinxsidebar h1, div.sphinxsidebar h2, div.sphinxsidebar h3,
+div.sphinxsidebar h4, div.sphinxsidebar h5, div.sphinxsidebar h6 {
+    font-family: 'Oxygen', sans-serif;
+}
+
+form.search > div {
+    display: inline;
+}
+
+body {
+    background-color: #2D3145;
+}
+
+div.related {
+    background-color: #2D3145;
+}
+
+div.contentwrapper {
+    padding: 30px 0;
+    background-color: #f3f3f3;
+}
+
+div.document, div.related > ul {
+    max-width: 1000px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+div.document {
+    border-radius: 5px;
+    background-color: white;
+}
+div.body {
+    background-color: transparent;
+    font-size: 1em;
+}
+div.sphinxsidebar {
+    padding-left: 15px;
+    font-size: 0.85em;
+}
+
+div.related li.hamburger {
+    display: none;
+}
+
+div.trigger {
+    display: none;
+}
+
+li.hamburger:hover .trigger {
+}
+
+@media screen and (max-width: 650px) {
+    div.sphinxsidebar {
+        display: none;
+    }
+
+    div.bodywrapper {
+        margin: 0;
+    }
+
+    div.document {
+        overflow: auto;
+        overflow-y: hidden;
+    }
+    
+    div.contentwrapper {
+        padding: 0;
+    }
+
+    /* TODO: Display responsive menu instead. */
+    div.related li.right {
+        display: none;
+    }
+
+    div.related:first-child li.hamburger {
+        display: block;
+        float: right;
+        width: 30px;
+        background-color: white;
+        margin: 10px;
+        margin-bottom: 10px;
+        line-height: 0px;
+        padding: 10px 5px;
+        border-radius: 4px;
+        text-align: center;
+        position: relative;
+    }
+    
+    li.hamburger > svg {
+        width: 18px;
+    }
+
+    li.hamburger:hover > div.trigger {
+        display: block;
+        line-height: 34px;
+        position: absolute;
+        text-align: left;
+        width: 80px;
+        right: 0px;
+        background-color: white;
+        border-style: solid;
+        padding: 12px 10px;
+        color: black;
+        border-width: 1px;
+        border-color: #bfbfbf;
+        border-radius: 4px;
+        top: 34px;
+    }
+
+    li.hamburger a {
+        color: black;
+        display: block;
+        text-shadow: none;
+    }
+}
+
+div.github-link {
+    line-height: 80px;
+    font-size: 1.1em;
+    text-align: center;
+}
+
+div.github-link svg {
+    position: relative;
+    top: 4px;
+    width: 20px;
+}
+</style>
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="/.html" title="Back to main site"
+             >main site</a></li>
+        <li class="right" >
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a> |</li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SourceSpell 1.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &raquo;</li>
+    <li class="hamburger">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           viewBox="0 0 18 15" enable-background="new 0 0 18 15" xml:space="preserve">
+          <path fill="#505050" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0
+            h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#505050" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484
+            h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#505050" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0
+            c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+    <div class="trigger">
+    
+        <a href="/.html" title="Back to main site">main site</a>
+    
+        <a href="../../genindex.html" title="General Index">index</a>
+    
+        <a href="../../py-modindex.html" title="Python Module Index">modules</a>
+    
+    </div>
+    </li>
+
+      </ul>
+    </div>
+<div class="contentwrapper">
+      
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for sourcespell.sourcespell</h1><div class="highlight"><pre>
+<span></span><span class="c1"># SourceSpell - Command line spell checker for source code files.</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright 2016 - Simon J Knibbs &lt;simon.knibbs@gmail.com&gt;</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">codecs</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">bisect</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">fnmatch</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">OrderedDict</span>
+
+<span class="kn">import</span> <span class="nn">enchant</span>
+<span class="kn">from</span> <span class="nn">enchant.tokenize</span> <span class="k">import</span> <span class="n">get_tokenizer</span><span class="p">,</span> <span class="n">URLFilter</span><span class="p">,</span> <span class="n">WikiWordFilter</span><span class="p">,</span> <span class="n">Filter</span>
+<span class="kn">import</span> <span class="nn">pygments</span>
+<span class="kn">from</span> <span class="nn">pygments</span> <span class="k">import</span> <span class="n">lexers</span>
+<span class="kn">from</span> <span class="nn">pygments.filters</span> <span class="k">import</span> <span class="n">TokenMergeFilter</span>
+<span class="kn">from</span> <span class="nn">pygments.token</span> <span class="k">import</span> <span class="n">Comment</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">Token</span><span class="p">,</span> <span class="n">Generic</span><span class="p">,</span> <span class="n">Literal</span>
+<span class="kn">from</span> <span class="nn">colorama</span> <span class="k">import</span> <span class="n">Fore</span><span class="p">,</span> <span class="n">Back</span><span class="p">,</span> <span class="n">Style</span><span class="p">,</span> <span class="n">init</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">magic</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">magic</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s2">&quot;win32&quot;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">msvcrt</span>
+    <span class="n">getchar</span> <span class="o">=</span> <span class="n">msvcrt</span><span class="o">.</span><span class="n">getch</span>
+<span class="k">else</span><span class="p">:</span>  <span class="c1"># POSIX platforms</span>
+    <span class="kn">import</span> <span class="nn">tty</span>
+    <span class="kn">import</span> <span class="nn">termios</span>
+
+<div class="viewcode-block" id="getchar"><a class="viewcode-back" href="../../sourcespell.html#sourcespell.sourcespell.getchar">[docs]</a>    <span class="k">def</span> <span class="nf">getchar</span><span class="p">():</span>
+        <span class="sd">&quot;&quot;&quot;Gets a character from stdin without waiting</span>
+<span class="sd">        for a newline.</span>
+
+<span class="sd">        :returns: A single character from stdin.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">fd</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">fileno</span><span class="p">()</span>
+        <span class="n">old</span> <span class="o">=</span> <span class="n">termios</span><span class="o">.</span><span class="n">tcgetattr</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">tty</span><span class="o">.</span><span class="n">setraw</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
+            <span class="n">ch</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">termios</span><span class="o">.</span><span class="n">tcsetattr</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">termios</span><span class="o">.</span><span class="n">TCSADRAIN</span><span class="p">,</span> <span class="n">old</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ch</span></div>
+
+
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;1.0&#39;</span>
+<span class="n">DESCRIPTION</span> <span class="o">=</span> <span class="s2">&quot;SourceSpell - Command line spellchecker for source code files.&quot;</span>
+
+
+<div class="viewcode-block" id="EmptyFileError"><a class="viewcode-back" href="../../sourcespell.html#sourcespell.sourcespell.EmptyFileError">[docs]</a><span class="k">class</span> <span class="nc">EmptyFileError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Error thrown for empty files.&quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="ParseError"><a class="viewcode-back" href="../../sourcespell.html#sourcespell.sourcespell.ParseError">[docs]</a><span class="k">class</span> <span class="nc">ParseError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Error thrown for Pygments lexer errors.&quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="NextFile"><a class="viewcode-back" href="../../sourcespell.html#sourcespell.sourcespell.NextFile">[docs]</a><span class="k">class</span> <span class="nc">NextFile</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Trigger to advance to the next file.&quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="HashBangFilter"><a class="viewcode-back" href="../../sourcespell.html#sourcespell.sourcespell.HashBangFilter">[docs]</a><span class="k">class</span> <span class="nc">HashBangFilter</span><span class="p">(</span><span class="n">Filter</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Filter skipping over the hashbang in executable scripts.</span>
+
+<span class="sd">    Taken from: https://github.com/htgoebel/pysource-spellchecker</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r&quot;^#!/.+$&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_skip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pattern</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<span class="k">class</span> <span class="nc">MyWikiWordFilter</span><span class="p">(</span><span class="n">WikiWordFilter</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">_skip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="n">WikiWordFilter</span><span class="o">.</span><span class="n">_skip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="EmailFilter"><a class="viewcode-back" href="../../sourcespell.html#sourcespell.sourcespell.EmailFilter">[docs]</a><span class="k">class</span> <span class="nc">EmailFilter</span><span class="p">(</span><span class="n">enchant</span><span class="o">.</span><span class="n">tokenize</span><span class="o">.</span><span class="n">EmailFilter</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Override the :class:`enchant.tokenize.EmailFilter` to filter out</span>
+<span class="sd">    addresses enclosed in angle brackets, for example:</span>
+
+<span class="sd">        &lt;joe.bloggs@example.com&gt;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r&quot;^.+@[^\.].*\.[a-z]{2,}\W?$&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SpellingCorrection"><a class="viewcode-back" href="../../sourcespell.html#sourcespell.sourcespell.SpellingCorrection">[docs]</a><span class="k">class</span> <span class="nc">SpellingCorrection</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Object to store information for a spelling</span>
+<span class="sd">    error.</span>
+
+<span class="sd">    :param filename: File path, relative to the base directory.</span>
+<span class="sd">    :param word: The word being checked.</span>
+<span class="sd">    :param index: The file index at the start of the word.</span>
+<span class="sd">    :param line_no: The 1-indexed line number.</span>
+<span class="sd">    :param column: The column index.</span>
+<span class="sd">    :param dictionary: Reference to the dictionary object.</span>
+<span class="sd">    :type dictionary: :class:`enchant.Dict`</span>
+<span class="sd">    :param line_content: The contents of the line containing the error.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">word</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">line_no</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">dictionary</span><span class="p">,</span> <span class="n">line_content</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="n">filename</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">word</span> <span class="o">=</span> <span class="n">word</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">index</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">line_no</span> <span class="o">=</span> <span class="n">line_no</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">column</span> <span class="o">=</span> <span class="n">column</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dictionary</span> <span class="o">=</span> <span class="n">dictionary</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">line_content</span> <span class="o">=</span> <span class="n">line_content</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a string representation of the error, including</span>
+<span class="sd">        the filename, line and column numbers.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> - Ln </span><span class="si">%s</span><span class="s2"> Col </span><span class="si">%s</span><span class="s2">: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
+            <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">line_no</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">column</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">word</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">suggestions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The :class:`list` of suggested corrections.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dictionary</span><span class="o">.</span><span class="n">suggest</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">word</span><span class="p">)</span>
+
+<div class="viewcode-block" id="SpellingCorrection.prompt"><a class="viewcode-back" href="../../sourcespell.html#sourcespell.sourcespell.SpellingCorrection.prompt">[docs]</a>    <span class="k">def</span> <span class="nf">prompt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Generate a prompt listing the available corrections.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">before</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">line_content</span><span class="p">[:</span><span class="bp">self</span><span class="o">.</span><span class="n">column</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">after</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">line_content</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">column</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">word</span><span class="p">):]</span>
+        <span class="n">suggestions</span> <span class="o">=</span> <span class="s1">&#39; | &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="p">[</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">suggest</span><span class="p">)</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">suggest</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">suggestions</span><span class="p">[:</span><span class="mi">10</span><span class="p">])]</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="si">%s%s%s%s%s</span><span class="se">\n\n</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span>
+            <span class="n">before</span><span class="p">,</span> <span class="n">Back</span><span class="o">.</span><span class="n">RED</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">word</span><span class="p">,</span>
+            <span class="n">Style</span><span class="o">.</span><span class="n">RESET_ALL</span><span class="p">,</span> <span class="n">after</span><span class="p">,</span> <span class="n">suggestions</span>
+        <span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="merge_tokens"><a class="viewcode-back" href="../../sourcespell.html#sourcespell.sourcespell.merge_tokens">[docs]</a><span class="k">def</span> <span class="nf">merge_tokens</span><span class="p">(</span><span class="n">stream</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Merge tokens of the same type from Pygments.</span>
+
+<span class="sd">    Adapted from :class:`pygments.filters.TokenMergeFilter`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="p">(</span><span class="n">curr_type</span><span class="p">,</span> <span class="n">curr_value</span><span class="p">,</span> <span class="n">curr_index</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">ttype</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">ttype</span> <span class="ow">is</span> <span class="n">curr_type</span><span class="p">:</span>
+            <span class="n">curr_value</span> <span class="o">+=</span> <span class="n">value</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">curr_type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="p">(</span><span class="n">curr_index</span><span class="p">,</span> <span class="n">curr_type</span><span class="p">,</span> <span class="n">curr_value</span><span class="p">)</span>
+            <span class="p">(</span><span class="n">curr_type</span><span class="p">,</span> <span class="n">curr_value</span><span class="p">,</span> <span class="n">curr_index</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">ttype</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">curr_type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="p">(</span><span class="n">curr_index</span><span class="p">,</span> <span class="n">curr_type</span><span class="p">,</span> <span class="n">curr_value</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SourceFile"><a class="viewcode-back" href="../../sourcespell.html#sourcespell.sourcespell.SourceFile">[docs]</a><span class="k">class</span> <span class="nc">SourceFile</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Interface for checking for spelling errors in a</span>
+<span class="sd">    single source file.</span>
+
+<span class="sd">    :param filename: Absolute path to the file.</span>
+<span class="sd">    :param dictionary: Enchant dictionary.</span>
+<span class="sd">    :type dictionary: :class:`enchant.Dict`</span>
+<span class="sd">    :param tokeniser: Enchant tokeniser from :func:`get_tokenizer`</span>
+<span class="sd">    :type tokeniser: :class:`enchant.tokenize.Tokenizer`</span>
+<span class="sd">    :param base_dir: Base directory path.</span>
+<span class="sd">    :param encoding: Character set encoding to read files with.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_rawstring_re</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">r&#39;^r[&quot;</span><span class="se">\&#39;</span><span class="s1">]&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">dictionary</span><span class="p">,</span> <span class="n">tokeniser</span><span class="p">,</span> <span class="n">base_dir</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base_dir</span> <span class="o">=</span> <span class="n">base_dir</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="n">filename</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dict</span> <span class="o">=</span> <span class="n">dictionary</span>
+        <span class="c1"># List of indexes of line endings for generating line numbers.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">line_idxs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="p">)</span> <span class="k">as</span> <span class="n">src_file</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="n">src_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+                <span class="n">line_lengths</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">splitlines</span><span class="p">(</span><span class="kc">True</span><span class="p">)]</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line_lengths</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+                    <span class="k">for</span> <span class="n">length</span> <span class="ow">in</span> <span class="n">line_lengths</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">line_idxs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">length</span> <span class="o">+</span> <span class="n">count</span><span class="p">)</span>
+                        <span class="n">count</span> <span class="o">+=</span> <span class="n">length</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">EmptyFileError</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: File empty.&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">relname</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">UnicodeDecodeError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: Couldn&#39;t decode with &#39;</span><span class="si">%s</span><span class="s2">&#39; codec.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">relname</span><span class="p">,</span> <span class="n">encoding</span><span class="p">),</span>
+                <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span>
+            <span class="p">)</span>
+            <span class="k">raise</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">code_lexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_lexer</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">tokeniser</span> <span class="o">=</span> <span class="n">tokeniser</span>
+
+<div class="viewcode-block" id="SourceFile._get_lexer"><a class="viewcode-back" href="../../sourcespell.html#sourcespell.sourcespell.SourceFile._get_lexer">[docs]</a>    <span class="k">def</span> <span class="nf">_get_lexer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Initialise the Pygments lexer.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO: Improve the lexer selection since Jinja and other template languages are</span>
+        <span class="c1"># often saved with .html template.</span>
+        <span class="n">lexer</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">lexer</span> <span class="o">=</span> <span class="n">lexers</span><span class="o">.</span><span class="n">get_lexer_for_filename</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">pygments</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">ClassNotFound</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+        <span class="k">if</span> <span class="n">magic</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">lexer</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Fallback to mimetype detection</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">mimetype</span> <span class="o">=</span> <span class="n">magic</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="n">mime</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">lexer</span> <span class="o">=</span> <span class="n">lexers</span><span class="o">.</span><span class="n">get_lexer_for_mimetype</span><span class="p">(</span><span class="n">mimetype</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">pygments</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">ClassNotFound</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+        <span class="k">if</span> <span class="n">lexer</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="c1"># If all else fails use the guess_lexer method</span>
+                <span class="n">lexer</span> <span class="o">=</span> <span class="n">lexers</span><span class="o">.</span><span class="n">guess_lexer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="p">[:</span><span class="mi">512</span><span class="p">])</span>
+            <span class="k">except</span> <span class="n">pygments</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">ClassNotFound</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No lexer found for: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">relname</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+                <span class="k">raise</span>
+
+        <span class="k">return</span> <span class="n">lexer</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">relname</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns the name of the file relative to</span>
+<span class="sd">        the base directory being checked.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_dir</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:]</span>
+
+<div class="viewcode-block" id="SourceFile._index_to_col_lineno"><a class="viewcode-back" href="../../sourcespell.html#sourcespell.sourcespell.SourceFile._index_to_col_lineno">[docs]</a>    <span class="k">def</span> <span class="nf">_index_to_col_lineno</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Calculates the line and column index from the</span>
+<span class="sd">        file index.</span>
+
+<span class="sd">        :param index: The file index.</span>
+<span class="sd">        :returns: A tuple of line number and column index.</span>
+<span class="sd">        :rtype: :class:`tuple` of (int, int)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">bisect</span><span class="o">.</span><span class="n">bisect_right</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">line_idxs</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
+        <span class="n">column</span> <span class="o">=</span> <span class="n">index</span> <span class="k">if</span> <span class="n">line</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">index</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">line_idxs</span><span class="p">[</span><span class="n">line</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="c1"># Note: line and column numbers are 1-indexed</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">line</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">column</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SourceFile._filter_code_tokens"><a class="viewcode-back" href="../../sourcespell.html#sourcespell.sourcespell.SourceFile._filter_code_tokens">[docs]</a>    <span class="k">def</span> <span class="nf">_filter_code_tokens</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stream</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Filter the token stream based on token type and</span>
+<span class="sd">        the name of the lexer.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">tokentype</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">merge_tokens</span><span class="p">(</span><span class="n">stream</span><span class="p">):</span>
+            <span class="c1"># Handle token errors</span>
+            <span class="k">if</span> <span class="n">tokentype</span> <span class="ow">is</span> <span class="n">Token</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+                <span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">_</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_index_to_col_lineno</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="n">ParseError</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">: Parse error at line </span><span class="si">%s</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">relname</span><span class="p">,</span> <span class="n">line</span><span class="p">))</span>
+            <span class="c1"># Lex python doc strings with the reStructuredText lexer.</span>
+            <span class="k">if</span> <span class="n">tokentype</span> <span class="ow">is</span> <span class="n">String</span><span class="o">.</span><span class="n">Doc</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">code_lexer</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;Python&#39;</span><span class="p">:</span>
+                <span class="n">sub_lexer</span> <span class="o">=</span> <span class="n">lexers</span><span class="o">.</span><span class="n">get_lexer_by_name</span><span class="p">(</span><span class="s1">&#39;reStructuredText&#39;</span><span class="p">)</span>
+                <span class="n">sub_stream</span> <span class="o">=</span> <span class="n">merge_tokens</span><span class="p">(</span><span class="n">sub_lexer</span><span class="o">.</span><span class="n">get_tokens_unprocessed</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+                <span class="k">for</span> <span class="n">sub_index</span><span class="p">,</span> <span class="n">tktype</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">sub_stream</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_select_token</span><span class="p">(</span><span class="n">tokentype</span><span class="p">,</span> <span class="n">sub_lexer</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+                        <span class="k">yield</span> <span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="n">sub_index</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_select_token</span><span class="p">(</span><span class="n">tokentype</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">code_lexer</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+                    <span class="k">yield</span> <span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SourceFile._select_token"><a class="viewcode-back" href="../../sourcespell.html#sourcespell.sourcespell.SourceFile._select_token">[docs]</a>    <span class="k">def</span> <span class="nf">_select_token</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokentype</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return ``True`` if the token should be used, ``False`` otherwise.&quot;&quot;&quot;</span>
+        <span class="c1"># TODO: Make min length configurable.</span>
+        <span class="n">MIN_LENGTH</span> <span class="o">=</span> <span class="mi">10</span>
+
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="p">(</span><span class="n">tokentype</span> <span class="ow">in</span> <span class="n">Comment</span> <span class="ow">and</span> <span class="n">tokentype</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">Comment</span><span class="o">.</span><span class="n">Preproc</span><span class="p">)</span> <span class="ow">or</span>
+            <span class="p">(</span><span class="n">tokentype</span> <span class="ow">in</span> <span class="n">Token</span><span class="o">.</span><span class="n">Text</span><span class="p">)</span> <span class="ow">or</span>
+            <span class="p">(</span><span class="n">tokentype</span> <span class="ow">in</span> <span class="n">Generic</span><span class="o">.</span><span class="n">Emph</span><span class="p">)</span> <span class="ow">or</span>
+            <span class="p">(</span><span class="n">tokentype</span> <span class="ow">in</span> <span class="n">Generic</span><span class="o">.</span><span class="n">Strong</span><span class="p">)</span> <span class="ow">or</span>
+            <span class="c1"># Ignore string literals in reStructuredText since</span>
+            <span class="c1"># these are used class and function references.</span>
+            <span class="p">(</span><span class="n">tokentype</span> <span class="ow">in</span> <span class="n">Literal</span><span class="o">.</span><span class="n">String</span> <span class="ow">and</span>
+             <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">MIN_LENGTH</span> <span class="ow">and</span>
+             <span class="n">name</span> <span class="o">!=</span> <span class="s1">&#39;reStructuredText&#39;</span> <span class="ow">and</span> <span class="ow">not</span>
+             <span class="bp">self</span><span class="o">.</span><span class="n">_is_rawstring</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>  <span class="c1"># Ignore Python raw-string literals</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="SourceFile._is_rawstring"><a class="viewcode-back" href="../../sourcespell.html#sourcespell.sourcespell.SourceFile._is_rawstring">[docs]</a>    <span class="k">def</span> <span class="nf">_is_rawstring</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return ``True`` if value is a Python raw-string literal,</span>
+<span class="sd">        ``False`` otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rawstring_re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="SourceFile.errors"><a class="viewcode-back" href="../../sourcespell.html#sourcespell.sourcespell.SourceFile.errors">[docs]</a>    <span class="k">def</span> <span class="nf">errors</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Generator that yields :class:`SpellingCorrection` objects for the current</span>
+<span class="sd">        source file.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">stream</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">code_lexer</span><span class="o">.</span><span class="n">get_tokens_unprocessed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filter_code_tokens</span><span class="p">(</span><span class="n">stream</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">token_index</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tokeniser</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+                    <span class="n">line</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_index_to_col_lineno</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="n">token_index</span><span class="p">)</span>
+                    <span class="c1"># Get line content</span>
+                    <span class="n">lo</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">line</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">line_idxs</span><span class="p">[</span><span class="n">line</span> <span class="o">-</span> <span class="mi">2</span><span class="p">]</span>
+                    <span class="n">line_content</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="p">[</span><span class="n">lo</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">line_idxs</span><span class="p">[</span><span class="n">line</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]]</span>
+                    <span class="k">yield</span> <span class="n">SpellingCorrection</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">relname</span><span class="p">,</span> <span class="n">word</span><span class="p">,</span> <span class="n">index</span> <span class="o">+</span> <span class="n">token_index</span><span class="p">,</span>
+                        <span class="n">line</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict</span><span class="p">,</span> <span class="n">line_content</span>
+                    <span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="BaseChecker"><a class="viewcode-back" href="../../sourcespell.html#sourcespell.sourcespell.BaseChecker">[docs]</a><span class="k">class</span> <span class="nc">BaseChecker</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Common functionality for all checker classes.</span>
+
+<span class="sd">    :param base_dir: The path to the base directory.</span>
+<span class="sd">    :param ignore_patterns: List of glob ignore patterns to skip.</span>
+<span class="sd">    :param language: ISO language code, e.g. &#39;en_GB&#39; or &#39;en_US&#39;</span>
+<span class="sd">    :param project_dict: Path to the project dictionary for excluded words.</span>
+<span class="sd">    :param encoding: Character set encoding to use reading / writing files.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base_dir</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ignore_patterns</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s1">&#39;en_GB&#39;</span><span class="p">,</span>
+                 <span class="n">project_dict</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">base_dir</span><span class="p">)</span>
+        <span class="c1"># Ignore common binary file formats and hidden files</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ignore_patterns</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s1">&#39;*.gif&#39;</span><span class="p">,</span> <span class="s1">&#39;*.jpeg&#39;</span><span class="p">,</span> <span class="s1">&#39;*.jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;*.bmp&#39;</span><span class="p">,</span> <span class="s1">&#39;*.png&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;*.exe&#39;</span><span class="p">,</span> <span class="s1">&#39;*.dll&#39;</span><span class="p">,</span> <span class="s1">&#39;*.webp&#39;</span><span class="p">,</span> <span class="s1">&#39;*.pyc&#39;</span><span class="p">,</span> <span class="s1">&#39;*.zip&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;*.gz&#39;</span><span class="p">,</span> <span class="s1">&#39;*/.*&#39;</span>
+        <span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isabs</span><span class="p">(</span><span class="n">project_dict</span><span class="p">):</span>
+            <span class="n">project_dict</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span> <span class="n">project_dict</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">ignore_patterns</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ignore_patterns</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_dir</span><span class="p">,</span> <span class="n">pattern</span><span class="p">)</span> <span class="k">for</span> <span class="n">pattern</span> <span class="ow">in</span> <span class="n">ignore_patterns</span><span class="p">]</span>
+            <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dictionary</span> <span class="o">=</span> <span class="n">enchant</span><span class="o">.</span><span class="n">DictWithPWL</span><span class="p">(</span><span class="n">language</span><span class="p">,</span> <span class="n">project_dict</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ret_code</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="n">encoding</span>
+
+        <span class="c1"># TODO: Consider breaking apart WikiWords instead of filtering them out.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tokeniser</span> <span class="o">=</span> <span class="n">get_tokenizer</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dictionary</span><span class="o">.</span><span class="n">tag</span><span class="p">,</span> <span class="p">[</span><span class="n">EmailFilter</span><span class="p">,</span> <span class="n">URLFilter</span><span class="p">,</span> <span class="n">WikiWordFilter</span><span class="p">,</span> <span class="n">HashBangFilter</span><span class="p">]</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="BaseChecker._search_files"><a class="viewcode-back" href="../../sourcespell.html#sourcespell.sourcespell.BaseChecker._search_files">[docs]</a>    <span class="k">def</span> <span class="nf">_search_files</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Generator function which returns files to be checked.&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_dir</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+                <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">any</span><span class="p">([</span><span class="n">fnmatch</span><span class="o">.</span><span class="n">fnmatch</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ignore_patterns</span><span class="p">]):</span>
+                    <span class="k">continue</span>
+                <span class="k">yield</span> <span class="n">filename</span></div>
+
+<div class="viewcode-block" id="BaseChecker._process_file"><a class="viewcode-back" href="../../sourcespell.html#sourcespell.sourcespell.BaseChecker._process_file">[docs]</a>    <span class="k">def</span> <span class="nf">_process_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">src_file</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Called from run for each source file</span>
+<span class="sd">        under the base directory.</span>
+
+<span class="sd">        :param src_file: The source file being checked.</span>
+<span class="sd">        :type src_file: :class:`SourceFile`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+<div class="viewcode-block" id="BaseChecker.run"><a class="viewcode-back" href="../../sourcespell.html#sourcespell.sourcespell.BaseChecker.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Runs the checker.</span>
+
+<span class="sd">        :returns: The script exit code.</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_search_files</span><span class="p">():</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_process_file</span><span class="p">(</span>
+                    <span class="n">SourceFile</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dictionary</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tokeniser</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_dir</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoding</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="k">except</span> <span class="n">pygments</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">ClassNotFound</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ret_code</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="k">continue</span>
+            <span class="k">except</span> <span class="n">ParseError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ret_code</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="k">continue</span>
+            <span class="k">except</span> <span class="ne">UnicodeDecodeError</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ret_code</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="k">continue</span>
+            <span class="k">except</span> <span class="p">(</span><span class="n">EmptyFileError</span><span class="p">,</span> <span class="n">NextFile</span><span class="p">):</span>
+                <span class="k">continue</span>  <span class="c1"># Skip empty files</span>
+            <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>  <span class="c1"># User quit.</span>
+                <span class="k">break</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ret_code</span></div></div>
+
+
+<div class="viewcode-block" id="SpellChecker"><a class="viewcode-back" href="../../sourcespell.html#sourcespell.sourcespell.SpellChecker">[docs]</a><span class="k">class</span> <span class="nc">SpellChecker</span><span class="p">(</span><span class="n">BaseChecker</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Non-Interactive spell checker. Prints a list of</span>
+<span class="sd">    all spelling errors found.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SpellChecker._process_file"><a class="viewcode-back" href="../../sourcespell.html#sourcespell.sourcespell.SpellChecker._process_file">[docs]</a>    <span class="k">def</span> <span class="nf">_process_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">src_file</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Prints errors to stderr and sets the error flag.&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">error</span> <span class="ow">in</span> <span class="n">src_file</span><span class="o">.</span><span class="n">errors</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ret_code</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="InteractiveChecker"><a class="viewcode-back" href="../../sourcespell.html#sourcespell.sourcespell.InteractiveChecker">[docs]</a><span class="k">class</span> <span class="nc">InteractiveChecker</span><span class="p">(</span><span class="n">BaseChecker</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Interactive spellchecker. Allows the user</span>
+<span class="sd">    to quickly fix spelling errors and add words to</span>
+<span class="sd">    the excluded words dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="InteractiveChecker._print_options"><a class="viewcode-back" href="../../sourcespell.html#sourcespell.sourcespell.InteractiveChecker._print_options">[docs]</a>    <span class="k">def</span> <span class="nf">_print_options</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Prints the list of keyboard options.&quot;&quot;&quot;</span>
+        <span class="n">codes</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">([</span>
+            <span class="p">(</span><span class="s1">&#39;0-9&#39;</span><span class="p">,</span> <span class="s1">&#39;Use the numbered suggestion.&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;Ignore the error and add to the excluded words.&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;Go to the next file, save existing changes.&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;q&#39;</span><span class="p">,</span> <span class="s1">&#39;Exit immediately, discards changes in the current file.&#39;</span><span class="p">)</span>
+        <span class="p">])</span>
+        <span class="nb">print</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">code</span><span class="p">,</span> <span class="n">help</span> <span class="ow">in</span> <span class="n">codes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> - </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">help</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;To skip to the next error, press any other key.&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="InteractiveChecker._handle_response"><a class="viewcode-back" href="../../sourcespell.html#sourcespell.sourcespell.InteractiveChecker._handle_response">[docs]</a>    <span class="k">def</span> <span class="nf">_handle_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">src_map</span><span class="p">,</span> <span class="n">error</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Handle the user response. Return True</span>
+<span class="sd">        if a correction was made.</span>
+
+<span class="sd">        :param src_map: The map of indexes to tokens.</span>
+<span class="sd">        :type src_map: :class:`collections.OrderedDict`</span>
+<span class="sd">        :param error: The spelling correction data.</span>
+<span class="sd">        :type error: :class:`SpellingCorrection`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">correction</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&gt;&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">getchar</span><span class="p">()</span>
+        <span class="c1"># Echo response</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+        <span class="c1"># Correct with the numbered correction</span>
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">src_map</span><span class="p">[</span><span class="n">error</span><span class="o">.</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">error</span><span class="o">.</span><span class="n">suggestions</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">response</span><span class="p">)]</span>
+                <span class="n">correction</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">Invalid selection, please try again.</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">Back</span><span class="o">.</span><span class="n">RED</span><span class="p">,</span> <span class="n">Style</span><span class="o">.</span><span class="n">RESET_ALL</span><span class="p">))</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle_response</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+        <span class="c1"># Add word to the excluded words list</span>
+        <span class="k">elif</span> <span class="n">response</span> <span class="o">==</span> <span class="s2">&quot;a&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dictionary</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">error</span><span class="o">.</span><span class="n">word</span><span class="p">)</span>
+        <span class="c1"># Next file</span>
+        <span class="k">elif</span> <span class="n">response</span> <span class="o">==</span> <span class="s2">&quot;n&quot;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">NextFile</span><span class="p">()</span>
+        <span class="c1"># Stop spellchecking</span>
+        <span class="k">elif</span> <span class="n">response</span> <span class="o">==</span> <span class="s2">&quot;q&quot;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">StopIteration</span><span class="p">()</span>
+        <span class="c1"># Ignore the current error by default</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">return</span> <span class="n">correction</span></div>
+
+<div class="viewcode-block" id="InteractiveChecker._process_file"><a class="viewcode-back" href="../../sourcespell.html#sourcespell.sourcespell.InteractiveChecker._process_file">[docs]</a>    <span class="k">def</span> <span class="nf">_process_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">src_file</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;For each error in the file. Prompt the</span>
+<span class="sd">        user for the action to take.</span>
+
+<span class="sd">        :param src_file: Source file being checked.</span>
+<span class="sd">        :type src_file: :class:`SourceFile`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">write_file</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">src_map</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_source_map</span><span class="p">(</span><span class="n">src_file</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">error</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">src_file</span><span class="o">.</span><span class="n">errors</span><span class="p">()):</span>
+            <span class="k">if</span> <span class="n">idx</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">%s%s</span><span class="s2">:</span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">Fore</span><span class="o">.</span><span class="n">GREEN</span><span class="p">,</span> <span class="n">src_file</span><span class="o">.</span><span class="n">relname</span><span class="p">,</span> <span class="n">Style</span><span class="o">.</span><span class="n">RESET_ALL</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">error</span><span class="o">.</span><span class="n">prompt</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_print_options</span><span class="p">()</span>
+
+            <span class="n">write_file</span> <span class="o">|=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle_response</span><span class="p">(</span><span class="n">src_map</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">write_file</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">src_file</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoding</span><span class="p">)</span> <span class="k">as</span> <span class="n">out_file</span><span class="p">:</span>
+                <span class="n">out_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">u&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">src_map</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span></div>
+
+<div class="viewcode-block" id="InteractiveChecker._get_source_map"><a class="viewcode-back" href="../../sourcespell.html#sourcespell.sourcespell.InteractiveChecker._get_source_map">[docs]</a>    <span class="k">def</span> <span class="nf">_get_source_map</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">contents</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a map of index, token pairs from the source</span>
+<span class="sd">        file to handle spelling replacements.</span>
+
+<span class="sd">        :param contents: The contents of the source file.</span>
+<span class="sd">        :returns: The generated map.</span>
+<span class="sd">        :rtype: :class:`collections.OrderedDict`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">src_map</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">r&#39;(\W+)&#39;</span><span class="p">,</span> <span class="n">contents</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">token</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">src_map</span><span class="p">[</span><span class="n">offset</span><span class="p">]</span> <span class="o">=</span> <span class="n">token</span>
+            <span class="n">offset</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">src_map</span></div></div>
+
+
+<div class="viewcode-block" id="get_parser"><a class="viewcode-back" href="../../sourcespell.html#sourcespell.sourcespell.get_parser">[docs]</a><span class="k">def</span> <span class="nf">get_parser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Initialise the command line argument parsing.</span>
+
+<span class="sd">    :returns: The argument parser.</span>
+<span class="sd">    :rtype: :class:`argparse.ArgumentParser`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span>
+        <span class="n">description</span><span class="o">=</span><span class="n">description</span><span class="p">,</span>
+        <span class="n">formatter_class</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentDefaultsHelpFormatter</span>
+    <span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--directory&#39;</span><span class="p">,</span> <span class="s1">&#39;-d&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Base directory to search from&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s1">&#39;--interactive&#39;</span><span class="p">,</span> <span class="s1">&#39;-i&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Run the interactive checker&#39;</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s1">&#39;--ignore-patterns&#39;</span><span class="p">,</span> <span class="s1">&#39;-I&#39;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;List of glob patterns to ignore&#39;</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--language&#39;</span><span class="p">,</span> <span class="s1">&#39;-l&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;en_GB&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Language to use&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s1">&#39;--excluded-words&#39;</span><span class="p">,</span> <span class="s1">&#39;-e&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;.excluded-words&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Path to excluded words list&#39;</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--encoding&#39;</span><span class="p">,</span> <span class="s1">&#39;-E&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Character encoding to use&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--version&#39;</span><span class="p">,</span> <span class="s1">&#39;-v&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Print version&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">parser</span></div>
+
+
+<div class="viewcode-block" id="main"><a class="viewcode-back" href="../../sourcespell.html#sourcespell.sourcespell.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Main entry point.&quot;&quot;&quot;</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">get_parser</span><span class="p">(</span><span class="n">DESCRIPTION</span><span class="p">)</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">version</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">DESCRIPTION</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Version: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">__version__</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">init</span><span class="p">()</span>  <span class="c1"># Initialise colorama</span>
+        <span class="n">checker_class</span> <span class="o">=</span> <span class="n">InteractiveChecker</span> <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">interactive</span> <span class="k">else</span> <span class="n">SpellChecker</span>
+        <span class="n">checker</span> <span class="o">=</span> <span class="n">checker_class</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">directory</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">ignore_patterns</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">language</span><span class="p">,</span>
+                                <span class="n">args</span><span class="o">.</span><span class="n">excluded_words</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">encoding</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">checker</span><span class="o">.</span><span class="n">run</span><span class="p">())</span></div>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+<div class="github-link">
+    <a href="https://github.com/s-knibbs/sourcespell">
+        <svg version="1.1" class="github-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px" y="0px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+            <path fill-rule="evenodd" clip-rule="evenodd" fill="#C2C2C2" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761
+                c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32
+                c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472
+                c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037
+                C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65
+                c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261
+                c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082
+                c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129
+                c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+        </svg>
+
+        View on GitHub
+    </a>
+</div>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="/.html" title="Back to main site"
+             >main site</a></li>
+        <li class="right" >
+          <a href="../../genindex.html" title="General Index"
+             >index</a> |</li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SourceSpell 1.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &raquo;</li>
+    <li class="hamburger">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           viewBox="0 0 18 15" enable-background="new 0 0 18 15" xml:space="preserve">
+          <path fill="#505050" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0
+            h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#505050" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484
+            h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#505050" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0
+            c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+    <div class="trigger">
+    
+        <a href="/.html" title="Back to main site">main site</a>
+    
+        <a href="../../genindex.html" title="General Index">index</a>
+    
+        <a href="../../py-modindex.html" title="Python Module Index">modules</a>
+    
+    </div>
+    </li>
+
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016 - Simon J Knibbs.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>
