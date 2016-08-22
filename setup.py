@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 from setuptools import setup
+from distutils.command.upload import upload as _upload
 
 import codecs
+from getpass import getpass
 import sourcespell
 
 
@@ -12,10 +14,23 @@ def read(filename):
 LONG_DESCRIPTION = read('README.rst')
 
 
+class upload(_upload):
+    """Override the upload command
+    to workaround https://bugs.python.org/issue18454
+    """
+
+    def run(self):
+        if self.password is None:
+            self.password = getpass()
+        _upload.run(self)
+
+
 setup(
+    cmdclass={'upload': upload},
     name='SourceSpell',
     version=sourcespell.__version__,
-    url='http://github.com/s-knibbs/sourcespell',
+    url='https://s-knibbs.github.io/sourcespell',
+    download_url='https://github.com/s-knibbs/sourcespell/tarball/1.0',
     license='GPLv3',
     author='Simon J Knibbs',
     author_email='simon.knibbs@gmail.com',
