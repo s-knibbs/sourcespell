@@ -178,6 +178,8 @@ class SourceFile(object):
     :param encoding: Character set encoding to read files with.
     """
 
+    _rawstring_re = re.compile(r'^r["\']')
+
     def __init__(self, filename, dictionary, tokeniser, base_dir, encoding='utf-8'):
         self.base_dir = base_dir
         self.filename = filename
@@ -269,16 +271,17 @@ class SourceFile(object):
                 sub_lexer = lexers.get_lexer_by_name('reStructuredText')
                 sub_stream = merge_tokens(sub_lexer.get_tokens_unprocessed(value))
                 for sub_index, tktype, value in sub_stream:
-                    if self._select_token(tokentype, sub_lexer.name, len(value)):
+                    if self._select_token(tokentype, sub_lexer.name, value):
                         yield (index + sub_index, value)
             else:
-                if self._select_token(tokentype, self.code_lexer.name, len(value)):
+                if self._select_token(tokentype, self.code_lexer.name, value):
                     yield (index, value)
 
-    def _select_token(self, tokentype, name, length):
+    def _select_token(self, tokentype, name, value):
         """Return ``True`` if the token should be used, ``False`` otherwise."""
         # TODO: Make min length configurable.
         MIN_LENGTH = 10
+
         return (
             (tokentype in Comment and tokentype not in Comment.Preproc) or
             (tokentype in Token.Text) or
@@ -286,8 +289,17 @@ class SourceFile(object):
             (tokentype in Generic.Strong) or
             # Ignore string literals in reStructuredText since
             # these are used class and function references.
-            (tokentype in Literal.String and length > MIN_LENGTH and name != 'reStructuredText')
+            (tokentype in Literal.String and
+             len(value) > MIN_LENGTH and
+             name != 'reStructuredText' and not
+             self._is_rawstring(value))  # Ignore Python raw-string literals
         )
+
+    def _is_rawstring(self, value):
+        """Return ``True`` if value is a Python raw-string literal,
+        ``False`` otherwise.
+        """
+        return self._rawstring_re.match(value) is not None
 
     def errors(self):
         """Generator that yields :class:`SpellingCorrection` objects for the current

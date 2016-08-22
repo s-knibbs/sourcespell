@@ -13,3 +13,10 @@ html
 mimetype
 Lex
 reStructuredText
+markup
+spellchecker
+Hunspell
+Aspell
+lexer
+Fallback
+min
