@@ -11,6 +11,7 @@ import argparse
 import bisect
 import re
 import fnmatch
+import pkg_resources
 from collections import OrderedDict
 
 import enchant
@@ -49,8 +50,8 @@ else:  # POSIX platforms
         return ch
 
 
-__version__ = '1.0'
-DESCRIPTION = "SourceSpell - Command line spellchecker for source code files."
+NAME = 'SourceSpell'
+DESCRIPTION = "%s - Command line spellchecker for source code files." % NAME
 
 
 class EmptyFileError(Exception):
@@ -543,13 +544,24 @@ def main():
 
     if args.version:
         print(DESCRIPTION)
-        print("Version: %s" % __version__)
+        print("Version: %s" % _get_version())
     else:
         init()  # Initialise colorama
         checker_class = InteractiveChecker if args.interactive else SpellChecker
         checker = checker_class(args.directory, args.ignore_patterns, args.language,
                                 args.excluded_words, args.encoding)
         sys.exit(checker.run())
+
+
+def _get_version():
+    """Read the version from the package metadata."""
+    try:
+        pkg_info = pkg_resources.get_distribution(NAME)
+        return pkg_info.version
+    except pkg_resources.DistributionNotFound:
+        print("Could not find the distribution information!")
+        print("The project must be built, and installed with 'pip install' or 'setup.py develop'.")
+        sys.exit(1)
 
 
 if __name__ == "__main__":

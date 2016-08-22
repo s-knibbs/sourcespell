@@ -4,7 +4,6 @@ from distutils.command.upload import upload as _upload
 
 import codecs
 from getpass import getpass
-import sourcespell
 
 
 def read(filename):
@@ -12,6 +11,7 @@ def read(filename):
 
 
 LONG_DESCRIPTION = read('README.rst')
+VERSION = '1.1'
 
 
 class upload(_upload):
@@ -28,9 +28,9 @@ class upload(_upload):
 setup(
     cmdclass={'upload': upload},
     name='SourceSpell',
-    version=sourcespell.__version__,
+    version=VERSION,
     url='https://s-knibbs.github.io/sourcespell',
-    download_url='https://github.com/s-knibbs/sourcespell/tarball/1.0',
+    download_url='https://github.com/s-knibbs/sourcespell/tarball/%s' % VERSION,
     license='GPLv3',
     author='Simon J Knibbs',
     author_email='simon.knibbs@gmail.com',
