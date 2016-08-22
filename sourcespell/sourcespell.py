@@ -36,7 +36,7 @@ else:  # POSIX platforms
     def getchar():
         """Gets a character from stdin without waiting
         for a newline.
-        
+
         :returns: A single character from stdin.
         """
         fd = sys.stdin.fileno()
@@ -91,7 +91,7 @@ class MyWikiWordFilter(WikiWordFilter):
 class EmailFilter(enchant.tokenize.EmailFilter):
     """Override the :class:`enchant.tokenize.EmailFilter` to filter out
     addresses enclosed in angle brackets, for example:
-    
+
         <joe.bloggs@example.com>
     """
     _pattern = re.compile(r"^.+@[^\.].*\.[a-z]{2,}\W?$")
@@ -100,7 +100,7 @@ class EmailFilter(enchant.tokenize.EmailFilter):
 class SpellingCorrection(object):
     """Object to store information for a spelling
     error.
-    
+
     :param filename: File path, relative to the base directory.
     :param word: The word being checked.
     :param index: The file index at the start of the word.
@@ -150,7 +150,7 @@ class SpellingCorrection(object):
 
 def merge_tokens(stream):
     """Merge tokens of the same type from Pygments.
-    
+
     Adapted from :class:`pygments.filters.TokenMergeFilter`
     """
     (curr_type, curr_value, curr_index) = (None, None, None)
@@ -168,7 +168,7 @@ def merge_tokens(stream):
 class SourceFile(object):
     """Interface for checking for spelling errors in a
     single source file.
-    
+
     :param filename: Absolute path to the file.
     :param dictionary: Enchant dictionary.
     :type dictionary: :class:`enchant.Dict`
@@ -196,21 +196,24 @@ class SourceFile(object):
                 else:
                     raise EmptyFileError("%s: File empty." % self.relname)
         except UnicodeDecodeError:
-            print("%s: Couldn't decode with '%s' codec." % (self.relname, encoding), file=sys.stderr)
+            print(
+                "%s: Couldn't decode with '%s' codec." % (self.relname, encoding),
+                file=sys.stderr
+            )
             raise
 
         self.code_lexer = self._get_lexer()
 
         self.tokeniser = tokeniser
- 
+
     def _get_lexer(self):
         """Initialise the Pygments lexer.
         """
-        # TODO: Improve the lexer selection since Jinja and other template languages are 
+        # TODO: Improve the lexer selection since Jinja and other template languages are
         # often saved with .html template.
         lexer = None
         try:
-            lexer = lexers.get_lexer_for_filename(self.filename);
+            lexer = lexers.get_lexer_for_filename(self.filename)
         except pygments.util.ClassNotFound:
             pass
 
@@ -242,7 +245,7 @@ class SourceFile(object):
     def _index_to_col_lineno(self, index):
         """Calculates the line and column index from the
         file index.
-        
+
         :param index: The file index.
         :returns: A tuple of line number and column index.
         :rtype: :class:`tuple` of (int, int)
@@ -281,7 +284,8 @@ class SourceFile(object):
             (tokentype in Token.Text) or
             (tokentype in Generic.Emph) or
             (tokentype in Generic.Strong) or
-            # Ignore string literals in reStructuredText since these are used class and function references.
+            # Ignore string literals in reStructuredText since
+            # these are used class and function references.
             (tokentype in Literal.String and length > MIN_LENGTH and name != 'reStructuredText')
         )
 
@@ -305,7 +309,7 @@ class SourceFile(object):
 
 class BaseChecker(object):
     """Common functionality for all checker classes.
-    
+
     :param base_dir: The path to the base directory.
     :param ignore_patterns: List of glob ignore patterns to skip.
     :param language: ISO language code, e.g. 'en_GB' or 'en_US'
@@ -313,7 +317,8 @@ class BaseChecker(object):
     :param encoding: Character set encoding to use reading / writing files.
     """
 
-    def __init__(self, base_dir='.', ignore_patterns=None, language='en_GB', project_dict=None, encoding='utf-8'):
+    def __init__(self, base_dir='.', ignore_patterns=None, language='en_GB',
+                 project_dict=None, encoding='utf-8'):
         self.base_dir = os.path.realpath(base_dir)
         # Ignore common binary file formats and hidden files
         self.ignore_patterns = [
@@ -325,7 +330,9 @@ class BaseChecker(object):
             project_dict = os.path.abspath(os.path.join(base_dir, project_dict))
 
         if ignore_patterns is not None:
-            self.ignore_patterns.extend(ignore_patterns)
+            self.ignore_patterns.extend(
+                [os.path.join(self.base_dir, pattern) for pattern in ignore_patterns]
+            )
         self.dictionary = enchant.DictWithPWL(language, project_dict)
         self.ret_code = 0
         self.encoding = encoding
@@ -347,7 +354,7 @@ class BaseChecker(object):
     def _process_file(self, src_file):
         """Called from run for each source file
         under the base directory.
-        
+
         :param src_file: The source file being checked.
         :type src_file: :class:`SourceFile`
         """
@@ -355,7 +362,7 @@ class BaseChecker(object):
 
     def run(self):
         """Runs the checker.
-        
+
         :returns: The script exit code.
         :rtype: int
         """
@@ -451,7 +458,7 @@ class InteractiveChecker(BaseChecker):
     def _process_file(self, src_file):
         """For each error in the file. Prompt the
         user for the action to take.
-        
+
         :param src_file: Source file being checked.
         :type src_file: :class:`SourceFile`
         """
@@ -472,7 +479,7 @@ class InteractiveChecker(BaseChecker):
     def _get_source_map(self, contents):
         """Creates a map of index, token pairs from the source
         file to handle spelling replacements.
-        
+
         :param contents: The contents of the source file.
         :returns: The generated map.
         :rtype: :class:`collections.OrderedDict`
@@ -490,7 +497,7 @@ class InteractiveChecker(BaseChecker):
 
 def get_parser(description=''):
     """Initialise the command line argument parsing.
-    
+
     :returns: The argument parser.
     :rtype: :class:`argparse.ArgumentParser`
     """
@@ -500,10 +507,17 @@ def get_parser(description=''):
     )
 
     parser.add_argument('--directory', '-d', default='.', help='Base directory to search from')
-    parser.add_argument('--interactive', '-i', default=False, action='store_true', help='Run the interactive checker')
-    parser.add_argument('--ignore-patterns', '-I', nargs='+', default=None, help='List of glob patterns to ignore')
+    parser.add_argument(
+        '--interactive', '-i', default=False, action='store_true',
+        help='Run the interactive checker'
+    )
+    parser.add_argument(
+        '--ignore-patterns', '-I', nargs='+', default=None, help='List of glob patterns to ignore'
+    )
     parser.add_argument('--language', '-l', default='en_GB', help='Language to use')
-    parser.add_argument('--excluded-words', '-e', default='.excluded-words', help='Path to excluded words list')
+    parser.add_argument(
+        '--excluded-words', '-e', default='.excluded-words', help='Path to excluded words list'
+    )
     parser.add_argument('--encoding', '-E', default='utf-8', help='Character encoding to use')
     parser.add_argument('--version', '-v', default=False, action='store_true', help='Print version')
 
@@ -514,7 +528,7 @@ def main():
     """Main entry point."""
     parser = get_parser(DESCRIPTION)
     args = parser.parse_args()
-    
+
     if args.version:
         print(DESCRIPTION)
         print("Version: %s" % __version__)
