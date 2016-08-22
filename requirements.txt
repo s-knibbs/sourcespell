@@ -1,0 +1,4 @@
+pyenchant>=1.6.7
+Pygments>=2.0.2
+colorama>=0.3.3
+python-magic>=0.4.12
